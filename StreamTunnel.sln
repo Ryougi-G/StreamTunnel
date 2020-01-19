@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamTunnel", "StreamTunnel.csproj", "{65150E3E-9761-4A2F-9403-976A60B13DB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65150E3E-9761-4A2F-9403-976A60B13DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65150E3E-9761-4A2F-9403-976A60B13DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65150E3E-9761-4A2F-9403-976A60B13DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65150E3E-9761-4A2F-9403-976A60B13DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07FA84D5-1A10-4BFA-9EE8-0DB6D997F3C5}
+	EndGlobalSection
+EndGlobal
