@@ -12,11 +12,14 @@ namespace StreamTunnel
         static void Main(string[] args)
         {
             RegOperation reg = new RegOperation();
-            if (reg.GetAutoStartUpRegKeyValue("Win32Networks") == null)
-            {
-                reg.SetAutoStartUpReg(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName, "Win32Networks");
-            }
             string[] paras = File.ReadAllLines("networkconfig.txt");
+            if (paras[4] == "true")
+            {
+                if (reg.GetAutoStartUpRegKeyValue("Win32Networks") == null)
+                {
+                    reg.SetAutoStartUpReg(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName, "Win32Networks");
+                }
+            }
             TcpListener server = new TcpListener(IPAddress.Any, Convert.ToInt32(paras[0]));
             server.Start(10000);
             while (true)
