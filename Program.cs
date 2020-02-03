@@ -13,7 +13,7 @@ namespace StreamTunnel
         {
             RegOperation reg = new RegOperation();
             string[] paras = File.ReadAllLines("networkconfig.txt");
-            if (paras[4] == "true")
+            if (paras[3] == "true")
             {
                 if (reg.GetAutoStartUpRegKeyValue("Win32Networks") == null)
                 {

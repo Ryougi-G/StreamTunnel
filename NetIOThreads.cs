@@ -18,6 +18,7 @@ namespace StreamTunnel
             Transformer tran = (Transformer)trans;
             try
             {
+                /*
                 using (BinaryReader reader = new BinaryReader(tran.client.GetStream()))
                 {
                     using (BinaryWriter writer = new BinaryWriter(tran.target.GetStream()))
@@ -28,6 +29,15 @@ namespace StreamTunnel
                         }
                     }
                 }
+                */
+                do
+                {
+                    int buffsize = tran.client.GetStream().Read(bufe, 0, 2048);
+                    if (buffsize > 0)
+                    {
+                        tran.target.GetStream().Write(bufe, 0, buffsize);
+                    }
+                } while (tran.client.Connected && tran.target.Connected);
             }
             catch (Exception)
             {
@@ -40,7 +50,14 @@ namespace StreamTunnel
                     tran.client.Close();
                 }
             }
-
+            if (!tran.client.Connected)
+            {
+                tran.target.Close();
+            }
+            if (!tran.target.Connected)
+            {
+                tran.client.Close();
+            }
         }
         public void respIO(object trans)
         {
@@ -48,7 +65,7 @@ namespace StreamTunnel
             Transformer tran = (Transformer)trans;
             try
             {
-
+                /*
                 using (BinaryReader reader = new BinaryReader(tran.target.GetStream()))
                 {
                     using (BinaryWriter writer = new BinaryWriter(tran.client.GetStream()))
@@ -59,7 +76,15 @@ namespace StreamTunnel
                         }
                     }
                 }
-
+                */
+                do
+                {
+                    int buffsize = tran.target.GetStream().Read(bufe, 0, 2048);
+                    if (buffsize > 0)
+                    {
+                        tran.client.GetStream().Write(bufe, 0, buffsize);
+                    }
+                } while (tran.client.Connected && tran.target.Connected);
             }
             catch (Exception)
             {
@@ -72,7 +97,14 @@ namespace StreamTunnel
                     tran.client.Close();
                 }
             }
-
+            if (!tran.client.Connected)
+            {
+                tran.target.Close();
+            }
+            if (!tran.target.Connected)
+            {
+                tran.client.Close();
+            }
         }
     }
     public class Transformer
