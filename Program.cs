@@ -25,6 +25,8 @@ namespace StreamTunnel
             while (true)
             {
                 TcpClient cl = server.AcceptTcpClient();
+                IPEndPoint ip = (IPEndPoint)cl.Client.RemoteEndPoint;
+                Console.WriteLine(ip.Address.ToString());
                 TcpClient target = new TcpClient(paras[1], Convert.ToInt32(paras[2]));
                 Transformer tran = new Transformer(cl, target);
                 NetIOThreads nit = new NetIOThreads();

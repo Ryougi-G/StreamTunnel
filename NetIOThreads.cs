@@ -32,6 +32,7 @@ namespace StreamTunnel
                 */
                 do
                 {
+                    Thread.Sleep(1);
                     int buffsize = tran.client.GetStream().Read(bufe, 0, 2048);
                     if (buffsize > 0)
                     {
@@ -79,6 +80,7 @@ namespace StreamTunnel
                 */
                 do
                 {
+                    Thread.Sleep(1);
                     int buffsize = tran.target.GetStream().Read(bufe, 0, 2048);
                     if (buffsize > 0)
                     {
